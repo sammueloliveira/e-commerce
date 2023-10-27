@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-ECommerce1-d149e558-9cf1-4b64-a786-0a5ff264dbe4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+	
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.7" />
+    <PackageReference Include="NetDevPack.Identity" Version="7.0.1" />
+    <PackageReference Include="PdfSharpCore" Version="1.3.57" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+    <PackageReference Include="QRCoder" Version="1.4.1" />
+    <PackageReference Include="ServiceStack" Version="6.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\HelpConfig\HelpConfig.csproj" />
+    <ProjectReference Include="..\Infra\Infra.csproj" />
+    <ProjectReference Include="..\Test_EcommerceDDD\Test_EcommerceDDD.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,120 @@
+﻿@page
+@model RegisterModel
+@{
+   
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+          
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+           <div class="form-floating mb-3">
+                <input asp-for="Input.Nome" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Nome">Nome</label>
+                <span asp-validation-for="Input.Nome" class="text-danger"></span>
+            </div>
+             <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email">Email</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="Input_cpf" asp-for="Input.cpf" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.cpf">CPF</label>
+                <span asp-validation-for="Input.cpf" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.DataNascimento" class="form-control input-arrow" aria-required="true" type="date" />
+                <label asp-for="Input.DataNascimento">Data de Nascimento</label>
+                <span asp-validation-for="Input.DataNascimento" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Endereço" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Endereço">Endereço</label>
+                <span asp-validation-for="Input.Endereço" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ComplementoEndereço" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.ComplementoEndereço">ComplementoEndereço</label>
+                <span asp-validation-for="Input.ComplementoEndereço" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="Input_cep" asp-for="Input.cep" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.cep">CEP</label>
+                <span asp-validation-for="Input.cep" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="Input_Celular" asp-for="Input.Celular" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Celular">Celular</label>
+                <span asp-validation-for="Input.Celular" class="text-danger"></span>
+            </div>
+             <div class="form-floating mb-3">
+                <input id="Input_Telefone" asp-for="Input.Telefone" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Telefone">Telefone</label>
+                <span asp-validation-for="Input.Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Password">Senha</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control input-arrow" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.ConfirmPassword">Confirma Senha</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+           
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registrar</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Complete seus dados.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            Cadastre-se na Loja Virtual para encontrar todos os produtos que você precisa.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Utilize seu e-mail para entrar @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#Input_cpf').mask('999.999.999-99');
+            $('#Input_cep').mask('99999-999');
+            $('#Input_Telefone').mask('(99) 9999-9999');
+            $('#Input_Celular').mask('(99) 99999-9999');
+        });
+    </script>
+}
