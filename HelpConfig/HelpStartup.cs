@@ -41,10 +41,10 @@ namespace HelpConfig
             
 
             // SERVIÇO DOMINIO
-            services.AddSingleton<IServiceProduto, ServiceProduto>();
-            services.AddSingleton<IServiceCompraUsuario, ServiceCompraUsuario>();
-            services.AddSingleton<IServiceUsuario, ServiceUsuario>();
-            services.AddSingleton<IServiceMenu, ServiceMenu>();
+            services.AddSingleton<IProdutoService, ProdutoService>();
+            services.AddSingleton<ICompraUsuarioService, CompraUsuarioService>();
+            services.AddSingleton<IUsuarioService, UsuarioService>();
+            services.AddSingleton<IMenuService, MenuService>();
            
         }
 

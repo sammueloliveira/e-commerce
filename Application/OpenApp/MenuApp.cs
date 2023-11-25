@@ -7,10 +7,10 @@ namespace Application.OpenApp
 {
     public class MenuApp : IMenuApp
     {
-        private readonly IServiceMenu _IserviceMenu;
+        private readonly IMenuService _IserviceMenu;
 
        
-        public MenuApp(IServiceMenu menu)
+        public MenuApp(IMenuService menu)
         {
             _IserviceMenu = menu;
         }

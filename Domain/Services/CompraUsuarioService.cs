@@ -6,13 +6,13 @@ using Domain.Interfaces.InterfaceCompraUsuario;
 
 namespace Domain.Services
 {
-    public class ServiceCompraUsuario : IServiceCompraUsuario
+    public class CompraUsuarioService : ICompraUsuarioService
     {
 
         private readonly ICompraUsuario _IcompraUsuario;
         private readonly ICompra _Icompra;
 
-        public ServiceCompraUsuario(ICompraUsuario compraUsuario, ICompra compra)
+        public CompraUsuarioService(ICompraUsuario compraUsuario, ICompra compra)
         {
             _IcompraUsuario = compraUsuario;
             _Icompra = compra;

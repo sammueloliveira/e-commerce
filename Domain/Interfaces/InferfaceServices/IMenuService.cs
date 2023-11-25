@@ -2,7 +2,7 @@
 
 namespace Domain.Interfaces.InferfaceServices
 {
-    public interface IServiceMenu
+    public interface IMenuService
     {
         Task<List<Menu>> MontarMenuPorPerfil(string userID);
     }

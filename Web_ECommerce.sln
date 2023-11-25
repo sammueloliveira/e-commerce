@@ -17,13 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{90050189-CC15-457A-8254-B96C46ACA72E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerce1", "ECommerce1\ECommerce1.csproj", "{D065567B-9DB3-47B0-B844-053A131661AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebEcommerce", "ECommerce1\WebEcommerce.csproj", "{D065567B-9DB3-47B0-B844-053A131661AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Test", "5 - Test", "{5AB1F866-4CCF-4138-B48B-A75F4A490C80}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_EcommerceDDD", "Test_EcommerceDDD\Test_EcommerceDDD.csproj", "{BDB434E1-A3D0-487F-815D-D1595B55AAF7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSiteApis", "WebSiteApis\WebSiteApis.csproj", "{C8FD44AD-5D11-4542-ABEF-811D6D405C8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebEcommerce.APIs", "WebSiteApis\WebEcommerce.APIs.csproj", "{C8FD44AD-5D11-4542-ABEF-811D6D405C8A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsumoAPI", "ConsumoAPI\ConsumoAPI.csproj", "{BCE11F7E-33DA-47ED-9B47-2B766D0BEDAF}"
 EndProject

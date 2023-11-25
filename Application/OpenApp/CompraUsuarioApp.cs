@@ -8,9 +8,9 @@ namespace Application.OpenApp
     public class CompraUsuarioApp : ICompraUsuarioApp
     {
         private readonly ICompraUsuario _IcompraUsuario;
-        private readonly IServiceCompraUsuario _IserviceCompraUsuario;
+        private readonly ICompraUsuarioService _IserviceCompraUsuario;
 
-        public CompraUsuarioApp(ICompraUsuario compraUsuario, IServiceCompraUsuario serviceCompraUsuario)
+        public CompraUsuarioApp(ICompraUsuario compraUsuario, ICompraUsuarioService serviceCompraUsuario)
         {
             _IcompraUsuario = compraUsuario;
             _IserviceCompraUsuario = serviceCompraUsuario;

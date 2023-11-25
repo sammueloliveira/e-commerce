@@ -8,10 +8,10 @@ namespace Application.OpenApp
     public class ProdutoApp : IProdutoApp
     {
         private readonly IProduto _Iproduto;
-        private readonly IServiceProduto _IserviceProduto;
+        private readonly IProdutoService _IserviceProduto;
 
         public ProdutoApp(IProduto produto, 
-            IServiceProduto serviceProduto)
+            IProdutoService serviceProduto)
         {
             _Iproduto = produto;
             _IserviceProduto = serviceProduto;

@@ -8,52 +8,52 @@ namespace Application.OpenApp
 {
     public class UsuarioApp : IUsuarioApp
     {
-        private readonly IUsuario _Iusuario;
-        private readonly IServiceUsuario _IserviceUsuario;
+        private readonly IUsuario _usuario;
+        private readonly IUsuarioService _usuarioService;
 
-        public UsuarioApp(IUsuario usuario, IServiceUsuario service)
+        public UsuarioApp(IUsuario usuario, IUsuarioService usuarioService)
         {
-            _Iusuario = usuario;
-            _IserviceUsuario = service;
+            _usuario = usuario;
+            _usuarioService = usuarioService;
         }
 
         public async Task AtualizarTipoUsuario(string userID, TipoUsuario tipoUsuario)
         {
-            await _Iusuario.AtualizarTipoUsuario(userID, tipoUsuario);
+            await _usuario.AtualizarTipoUsuario(userID, tipoUsuario);
 
         }
 
         public async Task<ApplicationUser> ObterUsuarioPeloID(string userID)
         {
-           return await _Iusuario.ObterUsuarioPeloID(userID);
+           return await _usuario.ObterUsuarioPeloID(userID);
         }
 
         public async Task<List<ApplicationUser>> ListarUsuarioSomenteParaAdministradores(string userID)
         {
-            return await _IserviceUsuario.ListarUsuarioSomenteParaAdministradores(userID);
+            return await _usuarioService.ListarUsuarioSomenteParaAdministradores(userID);
         }
         public async Task Add(ApplicationUser objeto)
         {
-            await _Iusuario.Add(objeto);
+            await _usuario.Add(objeto);
         }
 
         public async Task Delete(ApplicationUser objeto)
         {
-            await _Iusuario.Delete(objeto);
+            await _usuario.Delete(objeto);
         }
 
         public async Task<ApplicationUser> GetEntityById(int Id)
         {
-            return await _Iusuario.GetEntityById(Id);
+            return await _usuario.GetEntityById(Id);
         }
         public async Task<List<ApplicationUser>> List()
         {
-            return await _Iusuario.List();
+            return await _usuario.List();
         }
 
         public async Task Update(ApplicationUser objeto)
         {
-             await _Iusuario.Update(objeto);
+             await _usuario.Update(objeto);
         }
 
        

@@ -11,13 +11,13 @@ namespace ECommerce1.Controllers
     {
         public readonly ILogger<BaseController> logger;
         public readonly UserManager<ApplicationUser> userManager;
-        public readonly ILogSistemaApp IlogsistemaApp;
+        public readonly ILogSistemaApp logsistemaApp;
 
-        public BaseController(ILogger<BaseController> logger, UserManager<ApplicationUser> userManager, ILogSistemaApp ilogsistemaApp)
+        public BaseController(ILogger<BaseController> logger, UserManager<ApplicationUser> userManager, ILogSistemaApp logsistemaApp)
         {
             this.logger = logger;
             this.userManager = userManager;
-            this.IlogsistemaApp = ilogsistemaApp;
+            this.logsistemaApp = logsistemaApp;
         }
 
         public async Task LogEcommerce(TipoLog tipoLog, Object objeto)
@@ -25,7 +25,7 @@ namespace ECommerce1.Controllers
             string actionName = this.ControllerContext.RouteData.Values["action"].ToString();
             string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
 
-            await IlogsistemaApp.Add(new LogSistema
+            await logsistemaApp.Add(new LogSistema
             {
                 TipoLog = tipoLog,
                 JsonInformacao = JsonConvert.SerializeObject(objeto),

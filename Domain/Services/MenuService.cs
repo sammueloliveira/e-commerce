@@ -5,11 +5,11 @@ using Domain.Interfaces.InterfaceUsuario;
 
 namespace Domain.Services
 {
-     public class ServiceMenu : IServiceMenu
+     public class MenuService : IMenuService
     {
         private readonly IUsuario _Iusuario;
 
-        public ServiceMenu(IUsuario usuario)
+        public MenuService(IUsuario usuario)
         {
             _Iusuario = usuario;
         }

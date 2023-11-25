@@ -14,16 +14,16 @@ namespace ECommerce1.Controllers
     [LogActionFilter]
     public class ProdutoController : BaseController
     {
-        private readonly IProdutoApp _IprodutoApp;
-        private readonly ICompraUsuarioApp _IcompraUsuarioApp;
+        private readonly IProdutoApp _produtoApp;
+        private readonly ICompraUsuarioApp _compraUsuarioApp;
         private IWebHostEnvironment _webHostEnvironment;
 
         public ProdutoController(IProdutoApp produtoApp, ICompraUsuarioApp IcompraUsuarioApp,
             IWebHostEnvironment webHostEnvironment, ILogger<ProdutoController> logger, UserManager<ApplicationUser> userManager,
             ILogSistemaApp ilogsistemaApp) : base(logger, userManager, ilogsistemaApp)
         {
-            _IprodutoApp = produtoApp;
-            _IcompraUsuarioApp = IcompraUsuarioApp;
+            _produtoApp = produtoApp;
+            _compraUsuarioApp = IcompraUsuarioApp;
             _webHostEnvironment = webHostEnvironment;
         }
 
@@ -32,13 +32,13 @@ namespace ECommerce1.Controllers
         {
             var idUsuario = await RetornarIdUsuarioLogado();
 
-            return View(await _IprodutoApp.ListarUsuarioLogado(idUsuario));
+            return View(await _produtoApp.ListarUsuarioLogado(idUsuario));
         }
 
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
-            return View(await _IprodutoApp.GetEntityById(id));
+            return View(await _produtoApp.GetEntityById(id));
         }
 
         [HttpGet]
@@ -47,7 +47,7 @@ namespace ECommerce1.Controllers
             return View();
         }
 
-        // POST: ProdutoController/Create
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Produto produto)
@@ -57,7 +57,7 @@ namespace ECommerce1.Controllers
                 var idUsuario = await RetornarIdUsuarioLogado();
                 produto.UserId = idUsuario;
 
-                await _IprodutoApp.AddProduto(produto);
+                await _produtoApp.AddProduto(produto);
                 await SalvarImagemProduto(produto);
                 await LogEcommerce(TipoLog.Informativo, produto);
 
@@ -75,17 +75,17 @@ namespace ECommerce1.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            return View(await _IprodutoApp.GetEntityById(id));
+            return View(await _produtoApp.GetEntityById(id));
         }
 
-        // POST: ProdutoController/Edit/5
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Produto produto)
         {
             try
             {
-                await _IprodutoApp.UpdateProduto(produto);
+                await _produtoApp.UpdateProduto(produto);
                
                 return RedirectToAction(nameof(Index));
             }
@@ -99,18 +99,18 @@ namespace ECommerce1.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            return View(await _IprodutoApp.GetEntityById(id));
+            return View(await _produtoApp.GetEntityById(id));
         }
 
-        // POST: ProdutoController/Delete/5
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id, Produto produto)
         {
             try
             {
-                var deletarProduto = await _IprodutoApp.GetEntityById(id);
-                await _IprodutoApp.Delete(deletarProduto);
+                var deletarProduto = await _produtoApp.GetEntityById(id);
+                await _produtoApp.Delete(deletarProduto);
 
                 await LogEcommerce(TipoLog.Informativo, deletarProduto);
 
@@ -129,7 +129,7 @@ namespace ECommerce1.Controllers
         [HttpGet("/api/ListarProdutosComEstoque")]
         public async Task<JsonResult> ListarProdutosComEstoque(string descricao)
         {
-            return Json(await _IprodutoApp.ListarProdutosComEstoque(descricao));
+            return Json(await _produtoApp.ListarProdutosComEstoque(descricao));
         }
 
        
@@ -138,15 +138,15 @@ namespace ECommerce1.Controllers
         {
             var idUsuario = await RetornarIdUsuarioLogado();
 
-            return View(await _IprodutoApp.ListarProdutosCarrinhoUsuario(idUsuario));
+            return View(await _produtoApp.ListarProdutosCarrinhoUsuario(idUsuario));
         }
 
         public async Task<IActionResult> RemoverCarrinho(int id)
         {
-            return View(await _IprodutoApp.ObterProdutoCarrinho(id));
+            return View(await _produtoApp.ObterProdutoCarrinho(id));
         }
 
-        // POST: ProdutoController/Delete/5
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoverCarrinho(int id, Produto produto)
@@ -154,8 +154,8 @@ namespace ECommerce1.Controllers
             try
             {
 
-                var deletarProduto = await _IcompraUsuarioApp.GetEntityById(id);
-                await _IcompraUsuarioApp.Delete(deletarProduto);
+                var deletarProduto = await _compraUsuarioApp.GetEntityById(id);
+                await _compraUsuarioApp.Delete(deletarProduto);
 
                 return RedirectToAction(nameof(ListarProdutosCarrinhoUsuario));
             }
@@ -171,7 +171,7 @@ namespace ECommerce1.Controllers
         {
             try
             {
-                var produto = await _IprodutoApp.GetEntityById(produtoTela.Id);
+                var produto = await _produtoApp.GetEntityById(produtoTela.Id);
 
                 if (produtoTela.Imagem != null)
                 {
@@ -190,7 +190,7 @@ namespace ECommerce1.Controllers
 
                     produto.Url = string.Concat("https://localhost:7005", "/imgProdutos/", NomeArquivo);
 
-                    await _IprodutoApp.UpdateProduto(produto);
+                    await _produtoApp.UpdateProduto(produto);
                 }
             }
             catch (Exception erro)

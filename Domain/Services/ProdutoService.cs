@@ -4,11 +4,11 @@ using Domain.Interfaces.InterfaceProduto;
 
 namespace Domain.Services
 {
-    public class ServiceProduto : IServiceProduto
+    public class ProdutoService : IProdutoService
     {
         private readonly IProduto _Iproduto;
 
-        public ServiceProduto(IProduto produto)
+        public ProdutoService(IProduto produto)
         {
             _Iproduto = produto;
         }

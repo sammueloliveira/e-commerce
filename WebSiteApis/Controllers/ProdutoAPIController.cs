@@ -7,20 +7,20 @@ namespace WebSiteApis.Controllers
     [Authorize]
     public class ProdutoAPIController : Controller
     {
-        public readonly IProdutoApp _IProdutoApp;
-        public readonly ICompraUsuarioApp _IcompraUsuarioApp;
+        public readonly IProdutoApp _produtoApp;
+        public readonly ICompraUsuarioApp _compraUsuarioApp;
 
-        public ProdutoAPIController(IProdutoApp ProductApp, ICompraUsuarioApp CompraUsuarioApp)
+        public ProdutoAPIController(IProdutoApp productApp, ICompraUsuarioApp compraUsuarioApp)
         {
-            _IProdutoApp = ProductApp;
-            _IcompraUsuarioApp = CompraUsuarioApp;
+            _produtoApp = productApp;
+            _compraUsuarioApp = compraUsuarioApp;
         }
 
 
         [HttpGet("/api/ListaProdutos")]
         public async Task<JsonResult> ListaProdutos(string descricao)
         {
-            return Json(await _IProdutoApp.ListarProdutosComEstoque(descricao));
+            return Json(await _produtoApp.ListarProdutosComEstoque(descricao));
         }
     }
 }

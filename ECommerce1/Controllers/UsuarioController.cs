@@ -12,24 +12,25 @@ namespace ECommerce1.Controllers
     [LogActionFilter]
     public class UsuarioController : BaseController
     {
-        private readonly IUsuarioApp _IusuarioApp;
+        private readonly IUsuarioApp _usuarioApp;
 
         public UsuarioController(IUsuarioApp usuarioApp, IWebHostEnvironment webHostEnvironment,
             ILogger<ProdutoController> logger, UserManager<ApplicationUser> userManager,
             ILogSistemaApp ilogsistemaApp) : base(logger, userManager, ilogsistemaApp)
         {
-            _IusuarioApp = usuarioApp;
+            _usuarioApp = usuarioApp;
         }
 
-        // GET
+        [HttpGet]
         public async Task<IActionResult> ListarUsuarios()
         {
             if (!await UsuarioAdministrador())
                 return RedirectToAction("Index", "Home");
 
-            return View(await _IusuarioApp.ListarUsuarioSomenteParaAdministradores(await RetornarIdUsuarioLogado()));
+            return View(await _usuarioApp.ListarUsuarioSomenteParaAdministradores(await RetornarIdUsuarioLogado()));
         }
-        // GET
+
+        [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
             if (!await UsuarioAdministrador())
@@ -41,7 +42,7 @@ namespace ECommerce1.Controllers
             tipoUsuarios.Add(new SelectListItem { Text = Enum.GetName(typeof(TipoUsuario), TipoUsuario.Administrador), Value = Convert.ToInt32(TipoUsuario.Administrador).ToString() });
             ViewBag.TipoUsuarios = tipoUsuarios;
 
-            return View(await _IusuarioApp.ObterUsuarioPeloID(id));
+            return View(await _usuarioApp.ObterUsuarioPeloID(id));
 
         }
 
@@ -54,7 +55,7 @@ namespace ECommerce1.Controllers
                 if (!await UsuarioAdministrador())
                     return RedirectToAction("Index", "Home");
 
-                await _IusuarioApp.AtualizarTipoUsuario(usuario.Id, (TipoUsuario)usuario.Tipo);
+                await _usuarioApp.AtualizarTipoUsuario(usuario.Id, (TipoUsuario)usuario.Tipo);
 
                 await LogEcommerce(TipoLog.Informativo, usuario);
 

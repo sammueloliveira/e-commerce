@@ -13,9 +13,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
-    <ProjectReference Include="..\ECommerce1\ECommerce1.csproj" />
+    <ProjectReference Include="..\ECommerce1\WebEcommerce.csproj" />
     <ProjectReference Include="..\Infra\Infra.csproj" />
-    <ProjectReference Include="..\WebSiteApis\WebSiteApis.csproj" />
+    <ProjectReference Include="..\WebSiteApis\WebEcommerce.APIs.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 
 namespace Domain.Interfaces.InferfaceServices
 {
-    public interface IServiceCompraUsuario
+    public interface ICompraUsuarioService
     {
         public Task<CompraUsuario> CarrinhoCompras(string userId);
         public Task<CompraUsuario> ProdutosComprados(string userId, int? idCompra = null);

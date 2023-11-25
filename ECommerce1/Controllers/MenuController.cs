@@ -8,12 +8,12 @@ namespace ECommerce1.Controllers
 {
     public class MenuController : BaseController
     {
-        private readonly IMenuApp _ImenuApp;
+        private readonly IMenuApp _menuApp;
 
-        public MenuController(IMenuApp imenuApp, IWebHostEnvironment webHostEnvironment, ILogger<ProdutoController> logger, 
+        public MenuController(IMenuApp menuApp, IWebHostEnvironment webHostEnvironment, ILogger<ProdutoController> logger, 
             UserManager<ApplicationUser> userManager, ILogSistemaApp ilogsistemaApp) : base(logger, userManager, ilogsistemaApp)
         {
-            _ImenuApp = imenuApp;
+            _menuApp = menuApp;
         }
 
         [AllowAnonymous]
@@ -24,7 +24,7 @@ namespace ECommerce1.Controllers
 
             var usuario = await RetornarIdUsuarioLogado();
 
-            listaMenu = await _ImenuApp.MontarMenuPorPerfil(usuario);
+            listaMenu = await _menuApp.MontarMenuPorPerfil(usuario);
 
             return Json(new { listaMenu });
 

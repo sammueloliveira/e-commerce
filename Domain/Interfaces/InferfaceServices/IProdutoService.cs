@@ -2,7 +2,7 @@
 
 namespace Domain.Interfaces.InferfaceServices
 {
-    public interface IServiceProduto
+    public interface IProdutoService
     {
         Task AddProduto(Produto produto);
         Task UpdateProduto(Produto produto);

@@ -2,23 +2,22 @@
 using Domain.Entities;
 using Domain.Enums;
 using ECommerce1.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce1.Controllers
 {
-   
+
     public class CompraUsuarioController : HelpQrCode
     {
-        private readonly ICompraUsuarioApp _IcompraUsuarioApp;
+        private readonly ICompraUsuarioApp _compraUsuarioApp;
         private readonly UserManager<ApplicationUser> _userManager;
         private IWebHostEnvironment _webHostEnvironment;
 
         public CompraUsuarioController(ICompraUsuarioApp compraUsuarioApp, UserManager<ApplicationUser> userManager,
              IWebHostEnvironment webHostEnvironment)
         {
-            _IcompraUsuarioApp = compraUsuarioApp;
+            _compraUsuarioApp = compraUsuarioApp;
             _userManager = userManager;
             _webHostEnvironment = webHostEnvironment;
         }
@@ -26,7 +25,7 @@ namespace ECommerce1.Controllers
         public async Task<IActionResult> FinalizarCompra()
         {
             var usuario = await _userManager.GetUserAsync(User);
-            var compraUsuario = await _IcompraUsuarioApp.CarrinhoCompras(usuario.Id);
+            var compraUsuario = await _compraUsuarioApp.CarrinhoCompras(usuario.Id);
 
             return View(compraUsuario);
         }
@@ -34,7 +33,7 @@ namespace ECommerce1.Controllers
         public async Task<IActionResult> MinhasCompras(bool mensagem = false)
         {
             var usuario = await _userManager.GetUserAsync(User);
-            var compraUsuario = await _IcompraUsuarioApp.MinhasCompras(usuario.Id);
+            var compraUsuario = await _compraUsuarioApp.MinhasCompras(usuario.Id);
 
             if(mensagem)
             {
@@ -49,7 +48,7 @@ namespace ECommerce1.Controllers
         {
             var usuario = await _userManager.GetUserAsync(User);
 
-            var sucesso = await _IcompraUsuarioApp.ConfirmaCompraCarrinhoUsuario(usuario.Id);
+            var sucesso = await _compraUsuarioApp.ConfirmaCompraCarrinhoUsuario(usuario.Id);
 
             if(sucesso)
             {
@@ -68,7 +67,7 @@ namespace ECommerce1.Controllers
 
             if (usuario != null)
             {
-                await _IcompraUsuarioApp.AdicionarProdutoCarrinho(usuario.Id, new CompraUsuario
+                await _compraUsuarioApp.AdicionarProdutoCarrinho(usuario.Id, new CompraUsuario
                 {
                     IdProduto = Convert.ToInt32(id),
                     QtdCompra = Convert.ToInt32(qtd),
@@ -90,7 +89,7 @@ namespace ECommerce1.Controllers
 
             if(usuario != null)
             {
-                qtd = await _IcompraUsuarioApp.QuantidadeProdutoCarrinhoUsuario(usuario.Id);
+                qtd = await _compraUsuarioApp.QuantidadeProdutoCarrinhoUsuario(usuario.Id);
 
                 return Json(new { sucesso = true, qtd = qtd });
             }
@@ -102,7 +101,7 @@ namespace ECommerce1.Controllers
         {
             var usuario = await _userManager.GetUserAsync(User);
 
-            var compraUsuario = await _IcompraUsuarioApp.ProdutosComprados(usuario.Id, id);
+            var compraUsuario = await _compraUsuarioApp.ProdutosComprados(usuario.Id, id);
 
             return await Download(compraUsuario, _webHostEnvironment);
 

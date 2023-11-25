@@ -2,7 +2,7 @@
 
 namespace Domain.Interfaces.InferfaceServices
 {
-    public interface IServiceUsuario
+    public interface IUsuarioService
     {
         Task<List<ApplicationUser>> ListarUsuarioSomenteParaAdministradores(string userID);
     }

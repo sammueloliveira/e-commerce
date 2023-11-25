@@ -16,7 +16,7 @@ namespace Test_EcommerceDDD
             try
             {
                 IProduto _Iproduto = new RepositoryProduto();
-                IServiceProduto _IserviceProduto = new ServiceProduto(_Iproduto);
+                IProdutoService _IserviceProduto = new ProdutoService(_Iproduto);
                 var produto = new Produto
                 {
                     Descricao = string.Concat("Descrição teste TDD", DateTime.Now.ToString()),
@@ -45,7 +45,7 @@ namespace Test_EcommerceDDD
             try
             {
                 IProduto _Iproduto = new RepositoryProduto();
-                IServiceProduto _IserviceProduto = new ServiceProduto(_Iproduto);
+                IProdutoService _IserviceProduto = new ProdutoService(_Iproduto);
                 var produto = new Produto
                 {
 

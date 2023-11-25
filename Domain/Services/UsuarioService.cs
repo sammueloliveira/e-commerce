@@ -5,11 +5,11 @@ using Domain.Interfaces.InterfaceUsuario;
 
 namespace Domain.Services
 {
-    public class ServiceUsuario : IServiceUsuario
+    public class UsuarioService : IUsuarioService
     {
         private readonly IUsuario _Isuario;
 
-        public ServiceUsuario(IUsuario usuario)
+        public UsuarioService(IUsuario usuario)
         {
             _Isuario = usuario;
         }

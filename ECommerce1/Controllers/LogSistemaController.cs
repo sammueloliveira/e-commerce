@@ -10,13 +10,13 @@ namespace ECommerce1.Controllers
     [LogActionFilter]
     public class LogSistemaController : BaseController
     {
-        private readonly ILogSistemaApp _IlogSistemaApp;
+        private readonly ILogSistemaApp _logSistemaApp;
 
-        public LogSistemaController(ILogSistemaApp IlogSistemaApp, IWebHostEnvironment webHostEnvironment,
+        public LogSistemaController(ILogSistemaApp logSistemaApp, IWebHostEnvironment webHostEnvironment,
             ILogger<ProdutoController> logger, UserManager<ApplicationUser> userManager,
             ILogSistemaApp ilogsistemaApp) : base(logger, userManager, ilogsistemaApp)
         {
-            _IlogSistemaApp = IlogSistemaApp;
+            _logSistemaApp = logSistemaApp;
         }
 
         // GET: LogSistema
@@ -25,7 +25,7 @@ namespace ECommerce1.Controllers
             if(!await UsuarioAdministrador())
                 return RedirectToAction("Index", "Home");
 
-            return View(await _IlogSistemaApp.List());
+            return View(await _logSistemaApp.List());
         }
 
         // GET: LogSistema/Details/5
@@ -40,7 +40,7 @@ namespace ECommerce1.Controllers
                 return NotFound();
             }
 
-            var logSistema = await _IlogSistemaApp.GetEntityById((int)id);
+            var logSistema = await _logSistemaApp.GetEntityById((int)id);
             if (logSistema == null)
             {
                 return NotFound();
