@@ -133,7 +133,7 @@ namespace ECommerce1.Controllers
         }
 
        
-        [HttpGet("/api/ListarProdutosCarrinhoUsuario")]
+        [HttpGet("/api/listar-produtos-carrinho-usuario")]
         public async Task<IActionResult> ListarProdutosCarrinhoUsuario()
         {
             var idUsuario = await RetornarIdUsuarioLogado();

@@ -17,7 +17,7 @@ namespace WebSiteApis.Controllers
         }
 
 
-        [HttpGet("/api/ListaProdutos")]
+        [HttpGet("lista-produtos")]
         public async Task<JsonResult> ListaProdutos(string descricao)
         {
             return Json(await _produtoApp.ListarProdutosComEstoque(descricao));

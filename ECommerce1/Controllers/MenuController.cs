@@ -17,7 +17,7 @@ namespace ECommerce1.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("/api/ListarMenu")]
+        [HttpGet("/api/listar-menu")]
         public async Task<IActionResult> ListarMenu()
         {
             var listaMenu = new List<Menu>();

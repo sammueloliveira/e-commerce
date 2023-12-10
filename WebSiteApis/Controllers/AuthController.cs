@@ -8,7 +8,7 @@ using WebSite_Apis.Token;
 
 namespace WebSiteApis.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : Controller
     {
@@ -23,7 +23,7 @@ namespace WebSiteApis.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("/api/Login")]
+        [HttpPost("login")]
         public async Task<ActionResult> Login(LoginUser login)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState.Values.SelectMany(e => e.Errors));

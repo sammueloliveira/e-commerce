@@ -19,7 +19,7 @@ namespace ECommerce1.Controllers
             _logSistemaApp = logSistemaApp;
         }
 
-        // GET: LogSistema
+      
         public async Task<IActionResult> Index()
         {
             if(!await UsuarioAdministrador())
@@ -28,7 +28,7 @@ namespace ECommerce1.Controllers
             return View(await _logSistemaApp.List());
         }
 
-        // GET: LogSistema/Details/5
+       
         public async Task<IActionResult> Details(int? id)
         {
 

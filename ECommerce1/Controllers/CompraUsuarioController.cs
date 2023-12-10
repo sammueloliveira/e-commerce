@@ -60,7 +60,7 @@ namespace ECommerce1.Controllers
             }
         }
 
-        [HttpPost("/api/AdicionarProdutoCarrinho")]
+        [HttpPost("/api/adicionar-produto-carrinho")]
         public async Task<IActionResult> AdicionarProdutoCarrinho(string id, string nome, string qtd)
         {
             var usuario = await _userManager.GetUserAsync(User);
@@ -80,7 +80,7 @@ namespace ECommerce1.Controllers
             return Json(new { sucesso = false });
 
         }
-        [HttpGet("/api/QtdProdutoCarrinho")]
+        [HttpGet("/api/qtd-produto-carrinho")]
         public async Task<JsonResult> QtdProdutoCarrinho()
         {
             var usuario = await _userManager.GetUserAsync(User);
