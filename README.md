@@ -1,6 +1,6 @@
 # web e-commerce
 
-O **Web E-Commerce** é uma aplicação robusta de comércio eletrônico desenvolvida com a tecnologia .NET, utilizando o padrão Model-View-Controller (MVC) com ASP.NET Core para integrar tanto o frontend quanto o backend. A aplicação oferece uma experiência de compra intuitiva e eficiente, incorporando as melhores práticas de desenvolvimento web.
+O **Web E-Commerce** é uma aplicação robusta de comércio eletrônico desenvolvida com a tecnologia .NET, utilizando o padrão Model-View-Controller (MVC) com ASP.NET Core para integrar tanto o frontend quanto o backend. A aplicação foi estruturada em Domain-Driven Design (DDD), proporcionando uma organização clara do código e facilitando a manutenção. Oferece uma experiência de compra intuitiva e eficiente, incorporando as melhores práticas de desenvolvimento web.
 
 ## Tecnologias Utilizadas
 - **ASP.NET Core MVC:** Framework principal que estrutura a aplicação, permitindo a criação de APIs RESTful e a gestão das views.
@@ -17,6 +17,6 @@ O **Web E-Commerce** é uma aplicação robusta de comércio eletrônico desenvo
 - **Frontend:** ASP.NET Core MVC e Blazor para a interface do usuário.
 - **Backend:** ASP.NET Core Web API para lógica de negócios e gerenciamento de dados.
 - **Banco de Dados:** SQL Server para persistência de dados.
-- **Testes:** Classe de testes unitários utilizando o framework MSTest..
+- **Testes:** Classe de testes unitários utilizando o framework MSTest.
 
 
