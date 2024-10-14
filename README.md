@@ -1,6 +1,4 @@
-# Web E-Commerce
-
-## Descrição do Projeto
+# web e-commerce
 
 O **Web E-Commerce** é uma aplicação robusta de comércio eletrônico desenvolvida com a tecnologia .NET, utilizando ASP.NET Core MVC para o backend e uma combinação de jQuery e Blazor para o frontend. Este projeto foi criado para fornecer uma experiência de compra intuitiva e eficiente, incorporando as melhores práticas de desenvolvimento web.
 
