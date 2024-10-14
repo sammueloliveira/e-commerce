@@ -11,10 +11,12 @@ O **Web E-Commerce** é uma aplicação robusta de comércio eletrônico desenvo
 - **SQL Server:** Sistema de gerenciamento de banco de dados relacional para armazenamento de dados da aplicação.
 - **jQuery:** Biblioteca JavaScript que proporciona uma experiência dinâmica e interativa no frontend.
 - **Blazor:** Framework para construção de interfaces do usuário com C#, permitindo a criação de componentes reutilizáveis.
+- **Testes Unitários:** Implementados para garantir a qualidade e o funcionamento correto de cada componente da aplicação.
 
 ## Estrutura do Projeto
 - **Frontend:** ASP.NET Core MVC e Blazor para a interface do usuário.
 - **Backend:** ASP.NET Core Web API para lógica de negócios e gerenciamento de dados.
 - **Banco de Dados:** SQL Server para persistência de dados.
+- **Testes:** Classe de testes unitários utilizando o framework MSTest..
 
 
